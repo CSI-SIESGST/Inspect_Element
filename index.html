@@ -11,9 +11,19 @@
     <div class="container">
         <div id="home" class="flex-column flex-center">
             <h1>Are you Ready?</h1>
-            <a href="/game.html" class="btn">Play</a>
+            
+            <h2 id="end-text">Enter your name below to save your score!</h2>
+            <input type="text" name="name" id="username" placeholder="Enter your name">
+            <a href="/game.html" class="Playbtn" id ="PLAY"type="submit">Play</a>
+            
+            <button class="btn" id="SaveBtn" type="submit" onclick="saveName(event)" disabled>Save Name</button>
+            
             <a href="/highscores.html" id="highscore-btn" class="btn">High Scores<i class="fas fa-crown"></i></a>
         </div>
     </div>
+    
 </body>
+
+<script src="index.js"></script>
+
 </html>
