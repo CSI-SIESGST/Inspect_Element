@@ -46,12 +46,64 @@ let questions = [
     }
 ]
 
+
+/*Function to convert time to string*/
+function timeToString(time) {
+    let diffInHrs = time / 3600000;
+    let hh = Math.floor(diffInHrs);
+  
+    let diffInMin = (diffInHrs - hh) * 60;
+    let mm = Math.floor(diffInMin);
+  
+    let diffInSec = (diffInMin - mm) * 60;
+    let ss = Math.floor(diffInSec);
+  
+    
+  
+    let formattedMM = mm.toString().padStart(2, "0");
+    let formattedSS = ss.toString().padStart(2, "0");
+    
+  
+    return `${formattedMM}:${formattedSS}`;
+  }
+  /*Variables for calculating time*/
+  let startTime;
+  let elapsedTime = 0;
+  let timerInterval;
+
+ // Create function to modify innerHTML
+  
+ function print(txt) {
+    document.getElementById("Time").innerHTML = txt;
+  }
+
+// Create "start"
+  
+function start() {
+    startTime = Date.now() - elapsedTime;
+    timerInterval = setInterval(function printTime() {
+      elapsedTime = Date.now() - startTime;
+      print(timeToString(elapsedTime));
+    }, 10);
+    
+
+    
+  }
+  print('elapsed  nknkTime');
+  function submit() {
+    clearInterval(timerInterval);
+    
+    print(timeToString(elapsedTime));
+    
+    
+  }
 const SCORE_POINTS = 100
 const MAX_QUESTIONS = 4
 
 startGame = () => {
     questionCounter = 0
     score = 0
+    start();
     availableQuestions = [...questions]
     getNewQuestion()
 }
@@ -59,7 +111,7 @@ startGame = () => {
 getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score)
-
+        localStorage.setItem('timeelapsed', elapsedTime)
         return window.location.assign('/end.html')
     }
 
@@ -107,7 +159,8 @@ choices.forEach(choice => {
 
 incrementScore = num => {
     score +=num
-    scoreText.innerText = score
+    
 }
+
 
 startGame()
