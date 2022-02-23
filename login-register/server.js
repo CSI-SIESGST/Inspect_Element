@@ -1,5 +1,5 @@
 var express = require('express');
-var env = require('dotenv').config()
+require('dotenv').config()
 var ejs = require('ejs');
 var path = require('path');
 var app = express();
@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
-mongoose.connect('mongodb+srv://Admin:Admin@cluster0.d4lyd.mongodb.net/database?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }, (err) => {
@@ -25,7 +25,7 @@ db.once('open', function () {
 });
 
 app.use(session({
-  secret: 'work hard',
+  secret: process.env.SECRET,
   resave: true,
   saveUninitialized: false,
   store: new MongoStore({
