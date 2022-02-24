@@ -8,7 +8,8 @@ userSchema = new Schema( {
 	username: String,
 	password: String,
 	passwordConf: String,
-	
+	marks:Number,
+	time:String
 }),
 User = mongoose.model('User', userSchema);
 

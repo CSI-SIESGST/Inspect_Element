@@ -10,8 +10,6 @@ router.get('/', function (req, res, next) {
 router.post('/', function(req, res, next) {
 	console.log(req.body);
 	var personInfo = req.body;
-
-
 	if(!personInfo.email || !personInfo.username || !personInfo.password || !personInfo.passwordConf){
 		res.send();
 	} else {
@@ -144,5 +142,39 @@ router.post('/forgetpass', function (req, res, next) {
 	});
 	
 });
+
+router.put('/marks/:id',async(req,res)=>{
+	try {
+		const user = await User.findById(req.params.id)
+		user.marks = req.body.marks
+		const data = await user.save()
+		res.json(data)
+	} catch (error) {
+		res.send(error)
+	}
+})
+
+router.put('/time/:id',async(req,res)=>{
+	try {
+		const user = await User.findById(req.params.id)
+		user.time = req.body.time
+		const data = await user.save()
+		res.json(data)
+	} catch (error) {
+		res.send(error)
+	}
+})
+
+router.get("/view", async(req,res)=>{
+	try {
+		const data=await User.find()
+		res.send(data)
+		console.log(req.body);
+	} catch (err) {
+		res.status(500).send({
+			message: err.message || "Some error occurred while retrieving users."
+			});
+	}
+  })
 
 module.exports = router;
