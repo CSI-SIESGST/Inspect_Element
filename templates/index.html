@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+      integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body
+    style="
+      background-image: url(/static/background.jpg);
+      background-size: cover;
+      background-position: center;
+    "
+  >
+    <div class="container">
+      <div id="home" class="flex-column flex-center">
+        <h1>Are you Ready?</h1>
+
+        <h2 id="end-text">Enter your name below to save your score!</h2>
+        <form action="/quiz" method="POST">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="name"
+            placeholder="Enter your name"
+            required
+          /><br />
+          <a>
+            <button class="Playbtn" id="PLAY" type="submit">Play</button></a
+          >
+        </form>
+
+        <!-- <button
+          class="btn"
+          id="SaveBtn"
+          type="submit"
+          onclick="saveName(event)"
+          disabled
+        >
+          Save Name
+        </button> -->
+
+        <!-- <a href="/highscores" id="highscore-btn" class="btn"
+          >High Scores<i class="fas fa-crown"></i
+        ></a> -->
+      </div>
+    </div>
+
+    <script src="/static/index.js"></script>
+    <script>
+      var alert_msg = '{{ message }}'
+  if (alert_msg != '') {
+  alert(alert_msg);
+  }
+  </script>
+  </body>
+</html>

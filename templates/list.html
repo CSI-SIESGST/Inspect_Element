@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Leaderboard</title>
+      <link rel="stylesheet" href="/static/list.css" />
+    </head>
+   <body>
+      <div class="container-wrap">
+         <a href="/" class="btn">Go Home<i class="fas fa-home"></i></a>
+         <section id="leaderboard">
+            <center>
+               <nav class="ladder-nav">
+                  <div class="ladder-title">
+                  <h1>Leaderboard</h1>
+                  </div>
+               </nav>
+            <table id="rankings" class="leaderboard-results">
+               <thead>
+                  <tr>
+                     <th class="table-font">Name</th>
+                     <th class="table-font">Score</th>
+                     <th class="table-font">time</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for row in rows %}
+                  <tr>
+                     <td class="table-font">{{row["name"]}}</td>
+                     <td class="table-font">{{row["score"]}}</td>
+                     <td class="table-font"> {{ row["time"]}}</td>
+      
+                  </tr>
+               {% endfor %}
+               </tbody>
+            </table>
+         </center>
+         </section>
+
+   </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+      integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container1">
+      <div id="end" class="flex-center flex-column">
+        <h1>Score</h1>
+        <h2 class="userdetails" id="finalScore">0</h2>
+        <h1>Time</h1>
+        <h2 class="userdetails" id="timeelapsed">time</h2>
+        <form class="end-form-container">
+          <a href="/list/">
+            <button
+              class="btn"
+              id="saveScoreBtn"
+              type="button"
+              onclick="senddata()"
+            >
+              Save your Score
+            </button></a
+          >
+        </form>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/static/end.js"></script>
+  </body>
+</html>
